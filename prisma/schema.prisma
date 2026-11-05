@@ -1,0 +1,45 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Pelanggan {
+  id        Int         @id @default(autoincrement())
+  nama      String
+  alamat    String
+  nomorHp   String
+  penyewaan Penyewaan[]
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+model Kendaraan {
+  id               Int         @id @default(autoincrement())
+  namaKendaraan    String
+  merek            String
+  nomorPlat        String
+  tahun            Int
+  hargaSewaPerHari Float
+  status           String      @default("TERSEDIA") // TERSEDIA, DISEWA
+  penyewaan        Penyewaan[]
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+}
+
+model Penyewaan {
+  id             Int       @id @default(autoincrement())
+  pelangganId    Int
+  kendaraanId    Int
+  tanggalSewa    DateTime
+  tanggalKembali DateTime
+  totalBiaya     Float
+  status         String    @default("AKTIF") // AKTIF, SELESAI
+  pelanggan      Pelanggan @relation(fields: [pelangganId], references: [id])
+  kendaraan      Kendaraan @relation(fields: [kendaraanId], references: [id])
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}

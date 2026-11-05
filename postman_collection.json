@@ -1,0 +1,91 @@
+{
+    "info": {
+        "name": "Rental Kendaraan TI21240033",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Get Semua Penyewaan",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/penyewaan",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "penyewaan"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get Detail Penyewaan",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/penyewaan/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "penyewaan",
+                        "1"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Create Penyewaan",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"pelangganId\": 1,\n  \"kendaraanId\": 2,\n  \"tanggalSewa\": \"2026-08-01T00:00:00.000Z\",\n  \"tanggalKembali\": \"2026-08-05T00:00:00.000Z\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:3000/penyewaan",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "penyewaan"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Delete Penyewaan",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/penyewaan/1",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "penyewaan",
+                        "1"
+                    ]
+                }
+            }
+        }
+    ]
+}

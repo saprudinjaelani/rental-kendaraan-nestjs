@@ -1,0 +1,15 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type PenyewaanType {
+  id: Int!
+  merek_kendaraan: String!
+  nama_pelanggan: String!
+  tanggal_sewa: String!
+  total_biaya: Float!
+}
+
+type Query {
+  getSemuaPenyewaan: [PenyewaanType!]!
+}
